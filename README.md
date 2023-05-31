@@ -18,3 +18,6 @@ The 5 Pillars of the Well-Architected Framework are
 The Chief of Air Force (CAF) has personally messaged you reminding you that the
 system has to be secure, run smoothly throughout the parade including the
 rehearsals and there is no room for downtime.
+
+
+![Screenshot 2023-05-31 170122](https://github.com/ngshukun/Set-up-architecture/assets/68421074/9e456124-4b27-4095-bea7-2b3f6e7d284e)
