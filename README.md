@@ -1,4 +1,4 @@
-# Set-up-architecture
+# Assignment
 
 In this Assignment, you are tasked to design an architecture on the Swift Commercial Cloud (SCC) so that they can deploy their resources swiftly.
 
