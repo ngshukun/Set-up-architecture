@@ -51,5 +51,10 @@ Azure will provision monitoring chart for us to monitor for any abnormalities, w
 In order to keep the total cost of ownership (TCO) low and maintain high availability at a same time, the committee will need to define the peak and off peak period, on which time of the day or period it will had the heaviest traffic, and if there a need to keep the same resource running during silent hours. we can reference to previous years data if application to determine the number of resources required and achieve optimise TCO. 
 
 3. Security
-The environment is secured through design by security approach. Firewall is first installed in few location to prevent unathorised access of the application. the 1st layer of firewall only accepts https (port 443) request, while the 2nd layer of firewall only accept incoming IP from the frontend application. Application gateway serve as reverse proxy prevent the application IP address being exposed to the public. To minimise any software  or hardware failure, individual tier will had spare VM. Load balencers 
+The environment is secured through design by security approach. Firewall is first installed in few location to prevent unathorised access of the application. the 1st layer of firewall only accepts https (port 443) request, while the 2nd layer of firewall only accept incoming IP from the frontend application. Application gateway serve as reverse proxy prevent the application IP address being exposed to the public. 
 
+4. Reliability
+To minimise any software or hardware failure, individual tier will had spare VM. Load balencer will distribute traffics to serviceable VM while terraform will ensure the state for these infrastructure will remain the same.There will be secondary DB in the event primary DB went down. A replicate region (secondary region) will also activated if the entire primary region is taken down. DB will be replicate in both region through secure virtual network peering.
+
+6. Performance Efficiency
+Having a secondary region not only improve the reliabiliy of the application, it will alo improve the latency for user that visit the application within the region. with azure monitoring in place, administrator are able to oversee the performance through the UI available, and respond immediate if anything is abnormal.
