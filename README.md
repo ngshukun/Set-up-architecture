@@ -17,7 +17,9 @@ The 5 Pillars of the Well-Architected Framework are
 2) Cost Optimization
 3) Security
 4) Reliability
-6) Performance Efficiency
+5) Performance Efficiency
+
+
 The Chief of Air Force (CAF) has personally messaged you reminding you that the
 system has to be secure, run smoothly throughout the parade including the
 rehearsals and there is no room for downtime.
@@ -29,7 +31,8 @@ The Proposed Set up Architecture showed as below
 
 
 In this architecture, there are 2 ways to access the application
-Public access and Admin access.
+1. Public access, and
+2. Admin access.
 
 Public access:
 When user first access the website, traffic manager will first direct the traffic to the primary region, where it will first encountered a firewall to accept only https (port 443) incoming request. 
@@ -37,7 +40,7 @@ When user first access the website, traffic manager will first direct the traffi
 Upon accept the request, traffic will route to the DMZ network, application gateway will serve as reverse proxy to prevent exposing actual IP address to the public. Before reaching the backend service, traffic will go through another firewall that accepts IP from the selected NSG.
 
 Admin access:
-Admin will required to log in to azure portal, and connect through bastion/RDP in order to connect to access the application.
+Admin will required to log in to azure portal, and connect through bastion/RDP in order to connect to access the applications.
 
 ## 5 pillar of Well-Architected Framwork
 
@@ -58,4 +61,4 @@ The environment is secured through design by security approach. Firewall is firs
 To minimise any software or hardware failure, load balencer will distribute traffics to serviceable VM. There will be secondary DB in the event primary DB went down. A replicate region (secondary region) will also activated if the entire primary region is taken down or the traffics is too high for a single region to load. DB will be replicate in both region through secure virtual network peering to previde any data loss.
 
 ### 5. Performance Efficiency
-Having a secondary region not only improve the reliabiliy of the application, it will alo improve the latency for user that visit the application within the region. with azure monitoring in place, administrator are able to oversee the performance through the UI available, and respond immediate if anything is abnormal. with autoscaling set up, rescources can be scale up or down depending on the overall usage, this not onli improves efficiencies, it also helps to bring the overall TCO down.
+Having a secondary region not only improve the reliabiliy of the application, it will alo improve the latency for user that visit the application within the region. with azure monitoring in place, administrator are able to oversee the performance through the UI available, and respond immediate if anything is abnormal. with autoscaling set up, rescources can be scale up or down depending on the overall usage, this not only improves efficiencies, it also helps to bring the overall TCO down.
